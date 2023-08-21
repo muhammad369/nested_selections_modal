@@ -1,7 +1,7 @@
 name: nested_selection_modal
 description: Nested Selection UI package
 version: 1.0.0
-homepage:
+homepage: https://github.com/muhammad369/nested_selections_modal
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

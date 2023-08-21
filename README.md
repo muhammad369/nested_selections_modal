@@ -1,7 +1,7 @@
 # nested_selections_modal
 
 
-![Pub Version](https://img.shields.io/pub/v/nested_selections_modal)
+![Pub Version](https://img.shields.io/pub/v/nested_selection_modal)
 
 
 A simple widget to provide the ability to select from tree structured selections 
