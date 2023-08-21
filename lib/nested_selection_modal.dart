@@ -1,6 +1,5 @@
 library nested_selection_modal;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Future<List<T>?> showNestedSelectionsModal<T>(BuildContext context,
@@ -15,7 +14,7 @@ Future<List<T>?> showNestedSelectionsModal<T>(BuildContext context,
     String okText = 'Ok',
     String cancelText = 'Cancel'}) {
   return showModalBottomSheet<List<T>?>(
-    isDismissible: false,
+      isDismissible: false,
       constraints: BoxConstraints(maxHeight: selectorHeight + 150),
       context: context,
       builder: (context) {
@@ -253,19 +252,30 @@ class SelectionView<T> extends StatelessWidget {
           children: itemBuilder == null
               ? items
                   .map(
-                    (e) => Container(
-                      padding: const EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      child: Text(e.label,
-                          style: e.value == selection ? TextStyle(fontWeight: FontWeight.bold, fontSize: 25) : null),
+                    (e) => GestureDetector(
+                      onDoubleTap: () {
+                        onSelectionChanged(e.value);
+                        //print('item double tapped ${e.value}');
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        alignment: Alignment.center,
+                        child: Text(e.label,
+                            style: e.value == selection ? TextStyle(fontWeight: FontWeight.bold, fontSize: 25) : null),
+                      ),
                     ),
                   )
                   .toList()
               : items
                   .map(
-                    (e) => (e.value == selection && selectedItemBuilder != null)
-                        ? selectedItemBuilder!(e)
-                        : itemBuilder!(e),
+                    (e) => GestureDetector(
+                        onDoubleTap: () {
+                          onSelectionChanged(e.value);
+                          //print('item double tapped ${e.value}');
+                        },
+                        child: (e.value == selection && selectedItemBuilder != null)
+                            ? selectedItemBuilder!(e)
+                            : itemBuilder!(e)),
                   )
                   .toList(),
         ));
