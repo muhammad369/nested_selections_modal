@@ -1,6 +1,6 @@
-name: nested_selection_dialog
+name: nested_selection_modal
 description: Nested Selection UI package
-version: 0.0.1
+version: 1.0.0
 homepage:
 
 environment:
