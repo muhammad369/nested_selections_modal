@@ -14,6 +14,7 @@ Future<List<T>?> showNestedSelectionsModal<T>(BuildContext context,
     String okText = 'Ok',
     String cancelText = 'Cancel'}) {
   return showModalBottomSheet<List<T>?>(
+      enableDrag: false,
       isDismissible: false,
       constraints: BoxConstraints(maxHeight: selectorHeight + 150),
       context: context,
@@ -154,6 +155,9 @@ class NestedSelectionView<T> extends StatelessWidget {
               .mapIndexed((i, e) => SelectionView<T>(
                     items: e.$2,
                     selection: e.$1,
+                    selectorWidth: selectorWidth,
+                    itemHeight: itemHeight,
+                    selectorHeight: selectorHeight,
                     onSelectionChanged: (s) {
                       List<T> newSelections;
                       //

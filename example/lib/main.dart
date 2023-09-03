@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nested_selection_dialog/nested_selection_modal.dart';
+import 'package:nested_selection_modal/nested_selection_modal.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,10 +48,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () async {
-                  var r = await showNestedSelectionsModal<String>(context,
-                      initialSelections: [],
-                      items: _createItems()!,
-                      );
+                  var r = await showNestedSelectionsModal<String>(
+                    context,
+                    initialSelections: [],
+                    items: _createItems()!,
+                    selectorWidth: 130
+                    //itemHeight: 100,
+                    //selectorHeight: 100
+                  );
                   print(r?.toString());
                 },
                 child: Text('show Nested Selection Modal')),
